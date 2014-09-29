@@ -2,3 +2,6 @@
 node_modules/
 # Web Storm specific files
 .idea/
+
+# Web Storm specific files
+coverage/

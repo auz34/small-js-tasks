@@ -1,4 +1,8 @@
 {
-    "name": "small-js-tasks",
-    "version": "0.0.1"
+  "name": "small-js-tasks",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-jasmine-node-coverage": "~0.1.11"
+  }
 }
