@@ -1,0 +1,4 @@
+#3rd party packages from npm
+node_modules/
+# Web Storm specific files
+.idea/
