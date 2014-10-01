@@ -1,3 +1,5 @@
+'use strict';
+
 var dummy = require('../../src/dummy');
 
 describe('calculation', function() {

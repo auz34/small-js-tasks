@@ -1,25 +1,14 @@
+'use strict';
+
 module.exports = function(grunt) {
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-jasmine-node-coverage');
 
-    grunt.initConfig({
-        jasmine_node: {
-            coverage: {
+    var userConfig = require( './grunt.settings.js' );
+    userConfig.pkg = grunt.file.readJSON('package.json');
 
-            },
-            options: {
-                forceExit: true,
-                match: '.',
-                matchall: false,
-                extensions: 'js',
-                specNameMatcher: 'spec',
-                captureExceptions: true,
-                junitreport: {
-                    report: false,
-                    savePath : "./build/reports/jasmine/",
-                    useDotNotation: true,
-                    consolidate: true
-                }
-            }
-        }
-    });
+
+    var taskConfig = require( './grunt.tasks.js' );
+    grunt.initConfig( grunt.util._.extend( taskConfig, userConfig ) );
 };
