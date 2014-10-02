@@ -1,5 +1,9 @@
 'use strict';
 
+function isInteger(x) {
+    return (typeof x === 'number') && (x % 1 === 0);
+}
+
 exports.calculate = function(a, b) {
     if (!isInteger(a) || !isInteger(b)) {
         return 0;
@@ -20,6 +24,4 @@ exports.calculate = function(a, b) {
     }
 };
 
-function isInteger(x) {
-    return (typeof x === 'number') && (x % 1 === 0);
-};
+
