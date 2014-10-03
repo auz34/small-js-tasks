@@ -48,5 +48,46 @@ u.extend(UnionFind.QuickFind.prototype, {
     }
 });
 
+UnionFind.QuickUnion = function(n) {
+    this.itemsMap = u.range(n);
+};
+
+u.extend(UnionFind.QuickUnion.prototype, {
+
+    find: function(p) {
+        while (p !== this.itemsMap[p]) {
+            p = this.itemsMap[p];
+        }
+
+        return p;
+    },
+
+    /**
+     * Returns true if two items are connected.
+     * @param p number of the first item.
+     * @param q number of the second item.
+     * @returns {boolean}
+     */
+    connected: function(p, q) {
+        return this.find(p) === this.find(q);
+    },
+
+    /**
+     * Unions two items into one group
+     * @param p
+     * @param q
+     */
+    union: function(p, q) {
+        var rootP = this.find(p),
+            rootQ = this.find(q);
+
+        if (rootP === rootQ) {
+            return;
+        }
+
+        this.itemsMap[rootP] = rootQ;
+    }
+});
+
 
 module.exports = UnionFind;
